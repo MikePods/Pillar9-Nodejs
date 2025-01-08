@@ -1,8 +1,5 @@
 const Admin = require("../models/admin.model");
 const User = require("../models/user.model");
-const jwt = require("jsonwebtoken");
-const { JWT_SECRET } = require("../config/config");
-const sendEmail = require("../utils/sendEmail");
 const { imageUpload } = require("../utils/imageUpload");
 
 const adminController = {};
@@ -104,7 +101,7 @@ adminController.getAllUsers = async (req, res) => {
 			status: true,
 			page,
 			limit,
-			totalUsers, 
+			totalUsers,
 			users,
 			msg: "Users fetched successfully!",
 		});
@@ -113,7 +110,6 @@ adminController.getAllUsers = async (req, res) => {
 		return res.status(500).send({ status: false, msg: error.message });
 	}
 };
-
 
 adminController.delete = async (req, res) => {
 	// #swagger.tags = ['Admin']
